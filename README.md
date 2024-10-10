@@ -13,11 +13,16 @@ The End-to-End Medical Chatbot is a conversational AI application designed to pr
 
 **Technologies Used**
 
-- **Python:** Programming language
-- **Langchain:** Generative AI framework
-- **Flask:** Web framework
-- **Meta Llama 2:** Language model
-- **PineCone:** Vector database
+
+ - It uses the _Llama-2-7B-Chat-GGML_ model, which is a **large language model (LLM)** that has been fine-tuned.
+   * Name - **llama-2-7b-chat.ggmlv3.q2_K.bin**
+   * Quant method - q2_K
+   * Bits - 2
+   * Size - **2.87 GB**
+   * Max RAM required - 5.37 GB
+   * Use case - New k-quant method. Uses GGML_TYPE_Q4_K for the attention.vw and feed_forward.w2 tensors, GGML_TYPE_Q2_K for the other tensors.
+   * **Model:** Know more about model **[Llama-2-7B-Chat-GGML](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML)**
+ - It is trained on the pdf **[The Gale Encyclopedia of Medicine, Volume 1, 2nd Edition, 637-page PDF]
 
 ## Understanding the Chatbot's Workflow
 
@@ -57,30 +62,22 @@ The End-to-End Medical Chatbot is a conversational AI application designed to pr
 - **PineCone:** A vector database that efficiently stores and retrieves embeddings.
 
 
-**Installation**
-
-1. **Clone the repository:**
-   ```bash
+**Installation Quickstart** 
+1. Open Git Bash.
+2. Change the current working directory to the location where you want the cloned directory.
+3. Type `git clone`, and then paste the URL you copied earlier.
+```bash
    git clone https://github.com/Desaiadi/End-to-End-Medical-Chatbot.git
-   ```
-2. **Install dependencies:**
-   ```bash
-   cd End-to-End-Medical-Chatbot.git
+```
+Press Enter to create your local clone.
+4. Install the pip packages in requirements.txt
+ ```bash
    pip install -r requirements.txt
-   ```
-3. **Set up environment variables:**
-   - Create a `.env` file in the project root directory.
-   - Add your PineCone API key and other necessary environment variables.
-
-**Usage**
-
-1. **Start the chatbot:**
-   ```bash
-   python app.py
-   ```
-2. **Access the chatbot:**
-   - Open your web browser and navigate to `http://localhost:5000`.
-
+ ```
+5. Now run it!
+```ternimal
+   chainlit run model.py -w
+```
 **Data Preparation**
 
 - Replace the `data/medical_book.pdf` file with your own medical PDF book.
